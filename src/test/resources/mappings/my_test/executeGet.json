@@ -1,0 +1,13 @@
+{
+  "request": {
+    "urlPathPattern": "/test",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "executeGet.txt",
+    "headers": {
+      "Content-Type": "text/plain;charset=UTF-8"
+    }
+  }
+}
