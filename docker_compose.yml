@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  back:
+    build: .
+    image: my_spring_demo
+    container_name: my_spring_demo
+    ports:
+      - "8080:8080"
