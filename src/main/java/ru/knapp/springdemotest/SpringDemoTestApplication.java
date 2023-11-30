@@ -20,13 +20,13 @@ public class SpringDemoTestApplication {
         return new RestTemplate();
     }
 
-//    @Bean
-//    public Cache<Integer, String> myCache() {
-//        return new LinkedHashMapLRUCache<Integer, String>(50);
-//    }
-
     @Bean
     public Cache<Integer, String> myCache() {
-        return new WeatherLRUCache<Integer, String>(50);
+        return new LinkedHashMapLRUCache<Integer, String>(50);
     }
+
+//    @Bean
+//    public Cache<Integer, String> myCache() {
+//        return new WeatherLRUCache<Integer, String>(50);
+//    }
 }

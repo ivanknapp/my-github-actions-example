@@ -23,10 +23,10 @@ class LRUCacheTest {
     @Autowired
     private Cache<Integer, String> cache;
 
-//    @BeforeEach
-//    public void clear() {
-//        cache.clear();
-//    }
+    @BeforeEach
+    public void clear() {
+        cache.clear();
+    }
 
     public static void main(String[] args) {
         Queue<Object> objects = new LinkedList<>();
@@ -46,8 +46,9 @@ class LRUCacheTest {
         try {
 
             for (int i = 0; i < size; i++) {
+                int finalI = i;
                 Runnable runnable =() -> {
-                    int key = 1;
+                    int key = finalI;
                     cache.put(key, "value" + key);
                     countDownLatch.countDown();
                 };
