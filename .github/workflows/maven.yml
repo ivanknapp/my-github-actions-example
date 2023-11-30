@@ -8,23 +8,23 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repo
+      - name: Checkout repo
         uses: actions/checkout@v3
-      - name: set up Java and Maven
+      - name: Set up Java and Maven
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-      - name: run tests
+      - name: Run tests
         run: mvn test
   prepare-environment:
     needs: test
     runs-on: self-hosted
     steps:
-      - name: checkout repo
+      - name: Checkout repo
         uses: actions/checkout@v3
-      - name: Stop and remove containers, networks
+      - name: Stop docker compose
         run: docker-compose down
       - name: Stop and remove containers, networks
         run: docker rm -vf $(docker ps -aq)
@@ -34,7 +34,7 @@ jobs:
     runs-on: self-hosted
     needs: prepare-environment
     steps:
-      - name: checkout repo
+      - name: Checkout repo
         uses: actions/checkout@v3
-      - name: docker-compose
+      - name: Docker compose
         run: docker-compose up -d
